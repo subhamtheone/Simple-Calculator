@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        <div>
+            <h1>Simple Calculator using JavaScript</h1>
+        </div>
+            Enter First Number : <br>
+            <input type="number" id="Text1" name="TextBox1">
+            <br>
+            Enter Second Number : <br>
+            <input type="number" id="Text2" name="TextBox2">
+            <br>
+            Enter Operator : <br>
+            <input type="text" id="Text3" name="TextBox3" maxlength="1" onkeypress="javascript:return isNumber(event)">
+            <br>
+            Result : <br>
+            <input type="number" id="txtresult" name="TextBox4">
+            <br>
+         <input type="button" name="clickbtn" value="Display Result" onclick="operate()">
+    </div>
+        <script>
+            function isNumber(evt) {
+        var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+        if (iKeyCode == 42 || iKeyCode == 43 || iKeyCode == 45 || iKeyCode == 47)
+            return true;
+        else
+        return false;
+    }
+
+        </script>
+        <script type="text/javascript">
+            function operate(){
+            var n1 = parseInt(document.getElementById("Text1").value);
+            var n2 = parseInt(document.getElementById("Text2").value);
+            var operate = (document.getElementById("Text3").value);
+            switch(operate)
+	{
+	case '+':
+		r=n1+n2;
+		break;
+	case '-':
+		r=n1-n2;
+		break;
+	case '*':
+		r=n1*n2;
+		break;
+	case '/': 
+		r=n1/n2;
+		break;
+	default:
+        alert("wrong operator provided");
+		break;
+			
+	}
+            document.getElementById('txtresult').value=r;   
+            }
+        </script>
+        </body>
+        </html>
